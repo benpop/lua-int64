@@ -6,7 +6,7 @@ The library may compile to a dynamic shared library/bundle (.so) that you may re
 
 Some operations can store and retrieve a 64-bit integer in and from a void pointer or lua_Number, if the machine and Lua VM support it.
 
-WARNING:  A number of the operations use low-level C hacks.  These may not work, and may not even throw an error if they don't.  Lua is not supposed to crash, but when dealing with Lua's internals a crash is possible.  THE AUTHORS ARE NOT RESPONSIBLE FOR ANY DAMAGE OR INCONVENIENCE CAUSED BY THE USE OF THIS PROGRAM.
+WARNING:  A number of the operations use low-level C hacks.  These may not work, and may not even throw an error if they don't work.  Lua is not supposed to crash, but when dealing with C or Lua's internals a crash is possible.  THE AUTHORS ARE NOT RESPONSIBLE FOR ANY DAMAGE OR INCONVENIENCE CAUSED BY THE USE OF THIS PROGRAM.
 
 Supports Lua 5.1 and 5.2.
 
