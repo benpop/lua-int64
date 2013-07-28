@@ -150,6 +150,34 @@ static void *luaL_testudata (lua_State *L, int ud, const char *tname) {
 
 /*
 ** {=================================================================
+** Test whether types are at least 64 bits wide.
+** ==================================================================
+*/
+
+
+LUALIB_API int luaL_integeris64 (lua_State *L) {
+  (void)L;
+  return LUA_INTEGER_64;
+}
+
+
+LUALIB_API int luaL_numberis64 (lua_State *L) {
+  (void)L;
+  return LUA_NUMBER_64;
+}
+
+
+LUALIB_API int luaL_pointeris64 (lua_State *L) {
+  (void)L;
+  return LUA_POINTER_64;
+}
+
+
+/* }================================================================= */
+
+
+/*
+** {=================================================================
 ** Lua type => (u)int64_t
 ** ==================================================================
 */

@@ -57,6 +57,17 @@ LUALIB_API void luaL_u64pushhex (lua_State *L, uint64_t n);
 
 /*
 ** {=================================================================
+** Test whether types are at least 64 bits wide.
+** ==================================================================
+*/
+LUALIB_API int luaL_integeris64 (lua_State *L);
+LUALIB_API int luaL_numberis64 (lua_State *L);
+LUALIB_API int luaL_pointeris64 (lua_State *L);
+
+/* }================================================================= */
+
+/*
+** {=================================================================
 ** This is incredibly hacky and may not even work.
 ** Fit a 64-bit into the bit field of a double, if this Lua
 **    defined lua_Number as double.
