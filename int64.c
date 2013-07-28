@@ -183,16 +183,6 @@ LUALIB_API int luaL_pointeris64 (lua_State *L) {
 */
 
 
-static void dumpstack (lua_State *L) {
-  int i, top = lua_gettop(L);
-  luaL_checkstack(L, top + top + 1, "too many items to print");
-  lua_getglobal(L, "print");
-  for (i = 1; i <= top; i++)
-    lua_pushvalue(L, i);
-  lua_call(L, top, 0);
-}
-
-
 #define ltag_to_ltoi_error(tt) ((tt) + 2)
 
 #define LTOI_ERRMSG(type) "cannot convert " type " to int64"
@@ -693,7 +683,6 @@ static int obj64_compare (lua_State *L, int op) {
   obj64 *o;
   int other;
   int errcode;
-  dumpstack(L);
   switch (lua_type(L, 1)) {
     case LUA_TUSERDATA: {
       other = 2;
@@ -808,10 +797,8 @@ static uint64_t u_arith (int op, uint64_t a, uint64_t b) {
 
 
 static int obj64_arith (lua_State *L, int op) {
-  /* obj64 *o = toInt64(L); */
   obj64 *o;
   int errcode;
-  dumpstack(L);
   o = toInt64(L);
   if (o->_unsigned) {
     uint64_t u = luaL_tou64be(L, 2, 0, &errcode);
