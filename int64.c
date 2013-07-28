@@ -70,9 +70,9 @@ typedef struct obj64 {
 
 
 typedef union dbl64 {
-  double d;
-  int64_t i;
-  uint64_t u;
+  volatile double d;
+  volatile int64_t i;
+  volatile uint64_t u;
 } dbl64;
 
 
